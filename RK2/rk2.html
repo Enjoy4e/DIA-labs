@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang ="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RK№2</title>
+  <style media="screen">
+    body{
+      background-color: #1c1c1c;
+      font-family:Arial
+    }
+    h2{
+      color: #f0f0f0;
+      border: 3px solid #cccccc;
+      padding: 5px;
+      background-color: #292929;
+    }
+    table{
+      width: 100%
+    }
+    th,td{
+      border: 2px solid #cccccc;
+      padding: 10px;
+      text-align: center;
+    }
+    th {
+      background-color: #2e2e2e	;
+      color: #e3e3e3;
+    }
+    td {
+      color: #e3e3e3;
+    }
+    ol {
+      margin: 0px 150px;
+      color: #e3e3e3;
+    }
+    li {
+      margin-bottom: 5px;
+    }
+    .container {
+      margin: 5px 200px 50px 200px;
+    }
+    .book * > tr:nth-child(odd) > td {
+      background-color: #2e2e2e;
+    }
+    .lib > :nth-child(odd) {
+      background-color: #1f1f1f;
+    }
+    .lib > :nth-child(even) {
+      background-color: #2e2e2e;
+    }
+  </style>
+</head>
+<body>
+	<div class="container">
+		<h2>Таблица с увеличенными внутренними границами</h2>
+		<table cellspacing="2" class="conductor">
+	      <tr>
+	        <th>Библиотека</th>
+	        <th>Город</th>
+	        <th>Кол-во книг(тыс.)</th>
+	      </tr>
+	      <tr>
+	        <td>Библиотека Конгресса США</td>
+	        <td>Вашингтон</td>
+	        <td>360</td>
+	      </tr>
+	      <tr>
+	        <td>Британская библиотека</td>
+	        <td>Лондон</td>
+	        <td>420</td>
+	      </tr>
+	      <tr>
+	        <td>Нью-Йоркская публичная библиотека</td>
+	        <td>Нью-Йорк США</td>
+	        <td>330</td>
+	      </tr>
+	      <tr>
+	        <td>Архив Канады Канада</td>
+	        <td>Оттава</td>
+	        <td>240</td>
+	      </tr>
+	      <tr>
+	        <td>Российская государственная библиотека</td>
+	        <td>Москва</td>
+	        <td>1000</td>
+	      </tr>
+        <tr>
+          <td>Российская национальная библиотека</td>
+          <td>Санкт-Петербург</td>
+          <td>550</td>
+        </tr>
+	    </table>
+	</div>
+	<div class="container">
+		<h2>Нумерованный список</h2>
+		<ol class="lib">
+			<li>Гомер «Одиссея» и «Илиада»</li>
+			<li>Чарльз Диккенс «Приключения Оливера Твиста»</li>
+			<li>Джейн Остин «Гордость и предубеждение»</li>
+			<li>Иоганн Вольфганг фон Гете «Фауст»</li>
+			<li>Федор Михайлович Достоевский «Преступление и наказание»</li>
+      <li>Лев Николаевич Толстой «Война и мир»</li>
+      <li>Габриэль Гарсиа Маркес «Сто лет одиночества»</li>
+		</ol>
+	</div>
+</body>
+</html>

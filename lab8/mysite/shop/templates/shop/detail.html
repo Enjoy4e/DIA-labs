@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>lab8</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    {% load static %}
+    <style>
+      body{
+        background-color:#212529;
+        color:white;
+      }
+    </style>
+</head>
+<body class="d-flex h-100 text-center text-white bg-dark">
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <header class="mb-auto">
+    <div>
+      <h3 class="float-md-start mb-0">CinemaPark</h3>
+      <nav class="nav nav-masthead justify-content-center float-md-end">
+        <a class="nav-link active" aria-current="page" href="{% url 'shop:home' %}">Home</a>
+      </nav>
+    </div>
+  </header>
+    <main class="container-fluid bg-dark">
+                <h1 class="text-center text-light">{{ cinema.name }}</h1>
+                <table class="table table-dark table-borderless">
+                    <tr>
+                        <td class="text-light td-text-short" style="text-align: left">{{ description.description }}</td>
+                        <td>
+                            {% if cinema.id == 1 %}
+                                <img  style="max-width: 250px; height: auto" src="{% static "shop/images/1.jpg" %}" alt="tenet" class="rounded img-fluid">
+                            {% endif %}
+                            {% if cinema.id == 2 %}
+                                <img style="max-width: 300px; height: auto" src="{% static "shop/images/2.jpg" %}" alt="Interstellar" class="rounded img-fluid">
+                            {% endif %}
+                            {% if cinema.id == 3 %}
+                                <img style="max-width: 150px; height: auto" src="{% static "shop/images/3.jpg" %}" alt="The Social Network" class="rounded img-fluid">
+                            {% endif %}
+                            {% if cinema.id == 4 %}
+                                <img style="max-width: 250px; height: auto" src="{% static "shop/images/4.jpg" %}" alt="The Wolf of Wall Street" class="rounded img-fluid">
+                            {% endif %}
+                            {% if cinema.id == 5 %}
+                                <img style="max-width: 300px; height: auto" src="{% static "shop/images/5.jpg" %}" alt="Snowden" class="rounded img-fluid">
+                            {% endif %}
+                        </td>
+                    </tr>
+                </table>
+    </main>
+    <footer class="high bg-dark">
+    </footer>
+</body>
+</html>

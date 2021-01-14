@@ -2,9 +2,9 @@ from django.db import models
 from django.urls import reverse
 # Create your models here.
 class Supplier(models.Model):
-    name = models.CharField('Название поставщика' ,max_length=50)
-    field = models.CharField('Поставляемый товар' ,max_length=500)
-    adress = models.CharField('Адрес поставщика' ,max_length=500, default="")
+    name = models.CharField('Название поставщика ' ,max_length=50)
+    field = models.CharField('Поставляемый товар ' ,max_length=500)
+    adress = models.CharField('Адрес поставщика ' ,max_length=500, default="")
     def __str__(self):
         return self.name
 

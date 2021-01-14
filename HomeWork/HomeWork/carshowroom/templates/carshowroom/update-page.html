@@ -1,0 +1,47 @@
+{% extends 'carshowroom/base.html' %}
+
+{% block title %}
+Главная страница
+{% endblock %}
+
+{% block content %}
+ <div class="container ">
+     <h3>Изменение</h3>
+
+     {% if success %}
+        <p style="color:red">Новый поставщик добавлен</p>
+     {% endif %}
+     {% if update %}
+     <p>Редактирование</p>
+         <form id="update form" method="post">
+            {% csrf_token %}
+            {{form}}
+        </form>
+     <button form="update form" type="submit" class="btn btn-outline-dark mx-auto mt-2">Обновить</button>
+     <button type="button" class="btn btn-outline-secondary mx-auto mt-2 data-bs-dismiss="modal" onClick='location.href="{% url 'carshowroom:edit_page' %}"'>Вернуться</button>
+     {% else %}
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Название компании</th>
+          <th scope="col">Поставляемый продукт</th>
+          <th scope="col">Адрес поставщика</th>
+          <th scope="col">Редактирование</th>
+            <th scope="col">Удаление</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in list_suppliers%}
+        <tr>
+          <th scope="row">{{i.name}}</th>
+          <td>{{i.field}}</td>
+          <td>{{i.adress}}</td>
+          <td><a href="{% url 'carshowroom:update_page' i.id %}">Редактировать</a></td>
+          <td><a href="">Удалить</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+     {% endif %}
+ </div>
+{% endblock %}

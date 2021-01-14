@@ -1,0 +1,62 @@
+{% extends 'carshowroom/base.html' %}
+
+{% block title %}
+Редактирование данных
+{% endblock %}
+
+{% block content %}
+ <div class="container ">
+     <h3>Редактирование данных</h3>
+
+     <button type="button" class="btn btn-lg btn-outline-dark mx-auto mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Добавить нового поставщика
+     </button>
+
+     {% if success %}
+        <p style="color:red">Новый поставщик добавлен</p>
+     {% endif %}
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Название компании</th>
+          <th scope="col">Поставляемый продукт</th>
+          <th scope="col">Адрес поставщика</th>
+          <th scope="col">Редактирование</th>
+            <th scope="col">Удаление</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in list_suppliers%}
+        <tr>
+          <th scope="row">{{i.name}}</th>
+          <td>{{i.field}}</td>
+          <td>{{i.adress}}</td>
+          <td><a class="link-dark" href="{% url 'carshowroom:update_page' i.id %}">Редактировать</a></td>
+          <td><a class="link-dark" href="{% url 'carshowroom:delete_page' i.id %}">Удалить</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+             <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Поставщик</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form id="add form" method="post">
+                    {% csrf_token %}
+                    {{form}}
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                <button form="add form" type="submit" class="btn btn-primary">Добавить</button>
+              </div>
+            </div>
+          </div>
+        </div>
+ </div>
+{% endblock %}

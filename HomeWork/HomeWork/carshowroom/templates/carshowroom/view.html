@@ -18,5 +18,106 @@
     {% else %}
         <p>Database is empty.</p>
     {% endif %}
+    <canvas id="myChart"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script>
+        var ctx = document.getElementById('myChart');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: [{% for model in auto_model %},'{{ model.name }}', {% endfor %}],
+                datasets: [{
+                    label: 'Сравнение цен на модели автомобилей',
+                    data: [{% for model in auto_model %},'{{ model.price }}', {% endfor %}],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(255, 255, 80, 0.4)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(255, 255, 80, 0.4)',
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(254, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(0, 255, 0, 0.4)',
+                        'rgba(0, 255, 0, 0.4)',
+                        'rgba(0, 255, 0, 0.4)',
+
+
+
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(255, 255, 80, 0.4)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(255, 255, 80, 0.4)',
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(254, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(0, 255, 0, 0.4)',
+
+
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+    <canvas id="myChart2"></canvas>
+    <script>
+        var ctx = document.getElementById('myChart2');
+        var myChart2 = new Chart(ctx, {
+            type: 'polarArea',
+            data: {
+                labels: ['', 'Impreza WRX STi III', '', 'LX', '', 'Forester','', 'Camry 3.5', '', 'Land Cruiser 200', '', 'Avalon','', 'LC500', '','LX', '', 'NX'],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [{% for model in auto_model %},'{{ model.quantity }}', {% endfor %}],
+                    backgroundColor: [
+                        'rgba(255, 255, 255, 1)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 255, 255, 1)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(255, 255, 255, 1)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(255, 255, 255, 1)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 255, 255, 1)',
+                        'rgba(255, 255, 80, 0.4)',
+                        'rgba(255, 255, 255, 1)',
+                        'rgba(254, 162, 235, 0.2)',
+                        'rgba(255, 255, 255, 1)',
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(255, 255, 255, 1)',,
+                        'rgba(255, 255, 255, 1)',
+                        'rgba(0, 255, 0, 0.4)',
+                    ],
+                }]
+            },
+
+        });
+    </script>
 </div>
+
 {% endblock %}

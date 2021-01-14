@@ -18,6 +18,8 @@
                                     <p class = "ps-2 mb-1 mx-auto text-center"><strong class="pb-1 ">Поставляемый продукт:</strong> {{ supplier.field }}</p>
                                     <p class = "ps-2 mb-1 mx-auto text-center"><strong class="pb-1 ">Адрес поставщика:</strong> {{ supplier.adress }}</p>
                                 {% endfor %}
+                                <button type="button" class="w-100 btn btn-lg btn-outline-dark" onClick='location.href="{% url 'carshowroom:edit_page' %}"'>Редактировать</button>
+                            </div>
                             </p>
                         </div>
                     </div>
